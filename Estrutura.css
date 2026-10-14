@@ -1,0 +1,30 @@
+*{margin:0px;
+padding:0px;
+box-sizing:border-box;
+}
+:root{
+    --cor-de-fundo:#0cc0df;
+    --cor-principal:#38b6ff;
+    --cor-preto:black;
+    --cor-branco:white;
+
+}
+header{
+
+
+}
+
+#superior{
+    margin:0px;
+    padding:10px;
+    background-color:var(--cor-de-fundo);
+}
+h1{
+    color:var(--cor-branco);
+}
+
+#centro{
+    margin:50px;
+    padding:200px;
+}
+
