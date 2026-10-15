@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="Estrutura.css">
+    <script src="chart.js"></script>
+
+    <!--biblioteca de graficos para colocar o historico de vendas-->
 </head>
 <body>
     <header>
@@ -16,10 +19,88 @@
     </header>
 
 <main id="centro">
-   <div>
-<p>+</p>
-   </div> 
-   <div>
+  
+    <div>
+<p id="adicionarTabela">+</p>
+<p>carrinho</p>
+<!-- botão para adicionar celular na tabela -->
+   
+</div>
+
+<!-- toda a tabela -->
+   <div id="tabela">
+   <table>
+  <thead>
+
+    <tr>
+      <th class="tabela-cima">Produto</th>
+      <th class="tabela-cima">quant</th>
+      <th class="tabela-cima">prec unit</th>
+      <th class="tabela-cima">valor em estoque</th>
+      <th class="tabela-cima">valor gasto</th>
+    </tr>
+  </thead>
+
+  <!--class de alinhamento a direita para dinheiro-->
+  
+  <tbody>
+    <tr>
+      <td>relogio</td>
+      <td>20</td>
+      <td class="alinhado-direita">R$ 50,00</td>
+      <td class="alinhado-direita">R$ 1000,00</td>
+      <td class="alinhado-direita">R$ 500,00</td>
+    </tr> 
+    
+    <tr>
+      <td>pulseira</td>
+      <td>15</td>
+      <td class="alinhado-direita">R$ 20,00</td>
+      <td class="alinhado-direita">R$ 300,00</td>
+      <td class="alinhado-direita">R$ 100,00</td>
+    </tr>
+  </tbody>
+
+  <tfooter>
+    <tr>
+   <th id="total-estoque" class="tabela-baixo" colspan="3">total em estoque</th>
+   <th id="total-gasto" class="tabela-baixo" colspan="3">total gasto</th>
+
+    </tr>
+    <tr>
+    <td class="alinhado-centro" colspan="3">
+       R$ 1300,00
+    </td>
+    <td class="alinhado-centro" colspan="3">
+    R$ 600,00
+    </td>
+    </tr>
+  </tfooter>
+  
+</table>
+  
+</div>
+
+<!-- lado do grafico -->
+
+   <div class="painel-direito">
+   <div class="filtros">
+
+    <button>
+    dia
+ </button>
+ <button>
+    mês
+ </button>
+ <button class="ativo">
+    ano
+ </button>
+
+    </div>
+    <div id="grafico" >
+    <canvas id="meuGrafico"></canvas>
+
+  </div>
 
    </div>
 
@@ -27,9 +108,11 @@
 
 <footer>
 <div>
-<p>Autor:Nicolas Pereira da Silva</p>
+<p id="autor">Autor:Nicolas Pereira da Silva</p>
 </div>
 </footer>
+
+<script src="./Logica.js"></script>
 
 </body>
 </html>
