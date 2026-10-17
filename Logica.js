@@ -5,7 +5,7 @@ console.log(comeco);
 // para guardar dados do grafico
 
 // 📦 BANCO DE DADOS ÚNICO: Registra cada venda em ordem cronológica pura
-const historicoVendasUnificado = [];
+const historicoVendasUnificado = JSON.parse(localStorage.getItem('historicoVendas')) ||[];
 
 // Filtro padrão de exibição inicial
 let filtroTemporalAtual = 'dia'; 
@@ -13,7 +13,7 @@ let filtroTemporalAtual = 'dia';
 
 //variavel global, não mexer
 
-let faturamentoAcumulado = 0;
+let faturamentoAcumulado = parseFloat(localStorage.getItem('faturamentoAcumulado')) || 0;
 
 // linha do tempo do grafico
 
@@ -144,6 +144,10 @@ document.getElementById('formVenda').onsubmit = function(e) {
         gasto: gastoGrafico,
         ganho: faturamentoAcumulado
     });
+        // GRAVAÇÃO OFFLINE PERMANENTE: Salva a lista e o faturamento no computador
+    localStorage.setItem('historicoVendas', JSON.stringify(historicoVendasUnificado));
+    localStorage.setItem('faturamentoAcumulado', faturamentoAcumulado);
+
 
     // Filtra e redesenha as linhas do gráfico baseado no botão ativo
     renderizarGraficoComFiltro();
@@ -388,8 +392,7 @@ document.querySelectorAll('.filtros-grafico button').forEach(botao => {
     };
 });
 
-
-// Executa a soma automaticamente assim que a página carrega pela primeira vez
-window.addEventListener('DOMContentLoaded', calcularTotaisRodape);
-
-
+// força o grafico a usar os dados da memoria assim que abrir o app
+if (typeof renderizarGraficoComFiltro === "function") {
+    renderizarGraficoComFiltro();
+}
