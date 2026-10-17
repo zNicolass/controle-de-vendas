@@ -20,16 +20,20 @@
 
 <main id="centro">
   
-    <div>
-<p id="adicionarTabela">+</p>
-<p>carrinho</p>
-<!-- botão para adicionar celular na tabela -->
-   
-</div>
+    
+
+
 
 <!-- toda a tabela -->
    <div id="tabela">
-   <table>
+    <div class="topo-tabela">
+   <div> <button id="adicionarCelula" class="material-icons">add</button></div>
+
+<div > <button class="carrinho-bloco"><span class="material-icons"> shopping_cart </span></button>  </div>
+</div>
+<!-- botão para adicionar celular na tabela -->
+
+   <table >
   <thead>
 
     <tr>
@@ -43,38 +47,28 @@
 
   <!--class de alinhamento a direita para dinheiro-->
   
-  <tbody>
-    <tr>
-      <td>relogio</td>
-      <td>20</td>
-      <td class="alinhado-direita">R$ 50,00</td>
-      <td class="alinhado-direita">R$ 1000,00</td>
-      <td class="alinhado-direita">R$ 500,00</td>
-    </tr> 
+  <tbody id="corpo-tabela">
     
-    <tr>
-      <td>pulseira</td>
-      <td>15</td>
-      <td class="alinhado-direita">R$ 20,00</td>
-      <td class="alinhado-direita">R$ 300,00</td>
-      <td class="alinhado-direita">R$ 100,00</td>
-    </tr>
+
   </tbody>
 
   <tfooter>
     <tr>
-   <th id="total-estoque" class="tabela-baixo" colspan="3">total em estoque</th>
-   <th id="total-gasto" class="tabela-baixo" colspan="3">total gasto</th>
+      
+   <th id="total-estoque" class="tabela-baixo" colspan="3" >total em estoque</th>
+   <th id="total-gasto" class="tabela-baixo" colspan="2">total gasto</th>
 
     </tr>
+
     <tr>
-    <td class="alinhado-centro" colspan="3">
-       R$ 1300,00
-    </td>
-    <td class="alinhado-centro" colspan="3">
-    R$ 600,00
-    </td>
-    </tr>
+    
+
+    <!-- Alinha com a coluna "valor em estoque" -->
+    <td class="valores-finais" colspan="3"> </td>
+    <!-- Alinha com a coluna "valor gasto" e estica até os botões -->
+    <td class="valores-finais" colspan="2" ></td>
+  </tr>
+
   </tfooter>
   
 </table>
@@ -83,8 +77,8 @@
 
 <!-- lado do grafico -->
 
-   <div class="painel-direito">
-   <div class="filtros">
+   <div id="painel-direito">
+   <div class="filtros-grafico">
 
     <button>
     dia
@@ -108,9 +102,40 @@
 
 <footer>
 <div>
-<p id="autor">Autor:Nicolas Pereira da Silva</p>
+<p id="autor"></p>
 </div>
 </footer>
+
+
+ <!-- Janela Flutuante para Cadastrar/Editar -->
+
+<div id="modalProduto" class="modal">
+  <div class="modal-conteudo">
+    <span class="fechar-modal">&times;</span>
+    <h3 id="modalTitulo">Adicionar Novo Produto</h3>
+    
+    <form id="formProduto">
+      <!-- Campo oculto para saber se estar editando ou adicionando -->
+      <input type="hidden" id="produtoId">
+      
+      <label>Nome do Produto:</label>
+      <input type="text" id="nomeProd" required>
+      
+      <label>Quantidade:</label>
+      <input type="number" id="quantProd" required>
+      
+      <label>Preço Unitário (R$):</label>
+      <input type="number" step="0.01" id="precoProd" required>
+      
+      
+      <label>Valor Gasto (R$):</label>
+      <input type="number" step="0.01" id="gastoProd" required>
+      
+      <button type="submit" id="btnSalvar">Salvar</button>
+    </form>
+  </div>
+</div>
+
 
 <script src="./Logica.js"></script>
 
