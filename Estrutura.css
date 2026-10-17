@@ -83,17 +83,7 @@ color:var(--cor-branco) ;
   justify-content: center;
 
 }
-.carrinho-bloco{
-    display: flex;
-  align-items: center;
-  gap: 8px;               
-  background-color:var(--cor-primaria);
-  color:var(--cor-branco)
-  border:none;
-  cursor:pointer;
-  height: 0 px;
-  
-}
+
 
 .material-icons{
     font-family: 'Material Icons';
@@ -150,10 +140,21 @@ background-color:var(--cor-verde);
 padding:8px;
 
  }
+ #soma-estoque{
+  font-size: 16px;
+   display: inline-block; 
+   margin-top: 5px;
+ }
 
  #total-gasto{
 background-color:var(--cor-vermelho);
 padding:8px ;
+ }
+
+ #soma-gasto{
+  font-size: 16px; 
+  display: inline-block;
+   margin-top: 5px;
  }
 
  .valores-finais{
